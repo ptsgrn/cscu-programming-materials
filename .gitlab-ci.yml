@@ -1,17 +1,25 @@
-# The Docker image that will be used to build your app
-image: ruby:3.2
-# Functions that should be executed before the build script is run
-before_script: []
-pages:
+stages:
+  - build
+  - deploy
+
+jupyter-build:
+  stage: build
+  image: python:slim
   script:
-    - gem install bundler
-    - bundle install
-    - bundle exec jekyll build
+    - pip install -U jupyter-book
+    - jupyter-book clean .
+    - jupyter-book build .
   artifacts:
     paths:
-      # The folder that contains the files to be exposed at the Page URL
+      - _build/
+
+pages:
+  stage: deploy
+  image: busybox:latest
+  script:
+    - mv _build/html public
+  artifacts:
+    paths:
       - public
   rules:
-    # This ensures that only pushes to the default branch will trigger
-    # a pages deploy
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
