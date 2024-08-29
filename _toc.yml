@@ -4,26 +4,6 @@
 format: jb-book
 root: intro
 
-# contents:
-# 2301173-programming/lab1 2301173-programming/lab1/L1-Q1-Lab1_Q1.ipynb 2301173-programming/lab1/L1-Q2-Lab1_Q2.ipynb 2301173-programming/lab1/L1-Q3-Lab1_Q3.ipynb 2301173-programming/lab1/L1-Q4-Lab1_Q4.ipynb 2301173-programming/lab1/L1-Q5-Lab1_Q5.ipynb 2301173-programming/lab1/L1-Q6-Lab1_Q6.ipynb 2301173-programming/lab1/L1-Q7-Lab1_Q7.ipynb 2301173-programming/lab1/L1-Q8-Lab1_Q8.ipynb 2301173-programming/lab2 2301173-programming/lab2/files_UploadFile_1_13_Lab2_Q3.png 2301173-programming/lab2/files_UploadFile_1_13_Lab2_Q7.JPG 2301173-programming/lab2/L2-Q1-Lab2_Q1.ipynb 2301173-programming/lab2/L2-Q2-Lab2_Q2.ipynb 2301173-programming/lab2/L2-Q3-Lab2_Q3.ipynb 2301173-programming/lab2/L2-Q4-Lab2_Q4.ipynb 2301173-programming/lab2/L2-Q5-Lab2_Q5.ipynb 2301173-programming/lab2/L2-Q6-Lab2_Q6.ipynb 2301173-programming/lab2/L2-Q7-Lab2_Q7.ipynb 2301173-programming/lab3 2301173-programming/lab3/L3-Q1-Lab3_Q1.ipynb 2301173-programming/lab3/L3-Q2-Lab3_Q2.ipynb 2301173-programming/lab3/L3-Q3-Lab3_Q3.ipynb 2301173-programming/lab3/L3-Q4-Lab3_Q4.ipynb 2301173-programming/lab3/L3-Q5-Lab3_Q5.ipynb 2301173-programming/lab3/L3-Q6-Lab3_Q6.ipynb 2301173-programming/lab3/L3-Q7-Lab3_Q7.ipynb 2301173-programming/lab3/L3-Q8-Lab3_Q8.ipynb 2301173-programming/lecture 2301173-programming/lecture/00_colab_intro.ipynb 2301173-programming/lecture/Ch1 Python basics.ipynb 2301173-programming/lecture/Ch2 Selection.ipynb 2301173-programming/lecture/Ch3 Repetition.ipynb 2301173-programming/lecture/Ch4 Function.ipynb 2301173-programming/lecture/Ch5 Collection.ipynb 2301173-programming/lecture/Ch6 List.ipynb 2301173-programming/lecture/Ch7 Tuple.ipynb 2301173-programming/lecture/Ch8 Dictionary.ipynb 2301173-programming/lecture/Ch9 Object-oriented.ipynb 2301173-programming/lecture/Ch10 PyGame.ipynb
-
-# desired structure;
-# format: jb-book
-# root: index
-# parts:
-#   - caption: Name of Part 1
-#     chapters:
-#     - file: path/to/part1/chapter1
-#     - file: path/to/part1/chapter2
-#       sections:
-#       - file: path/to/part1/chapter2/section1
-#   - caption: Name of Part 2
-#     chapters:
-#     - file: path/to/part2/chapter1
-#     - file: path/to/part2/chapter2
-#       sections:
-#       - file: path/to/part2/chapter2/section1
-
 parts:
   - caption: Lectures
     chapters:
@@ -40,8 +20,9 @@ parts:
       - file: 2301173-programming/lecture/Ch10 PyGame
   - caption: Labs
     chapters:
-    - file: 2301173-programming/lab1/L1-Q1-Lab1_Q1
+    - file: 2301173-programming/lab1/lab1.md
       sections:
+        - file: 2301173-programming/lab1/L1-Q1-Lab1_Q1
         - file: 2301173-programming/lab1/L1-Q2-Lab1_Q2
         - file: 2301173-programming/lab1/L1-Q3-Lab1_Q3
         - file: 2301173-programming/lab1/L1-Q4-Lab1_Q4
@@ -49,16 +30,18 @@ parts:
         - file: 2301173-programming/lab1/L1-Q6-Lab1_Q6
         - file: 2301173-programming/lab1/L1-Q7-Lab1_Q7
         - file: 2301173-programming/lab1/L1-Q8-Lab1_Q8
-    - file: 2301173-programming/lab2/L2-Q1-Lab2_Q1
+    - file: 2301173-programming/lab2/lab2.md
       sections:
+        - file: 2301173-programming/lab2/L2-Q1-Lab2_Q1
         - file: 2301173-programming/lab2/L2-Q2-Lab2_Q2
         - file: 2301173-programming/lab2/L2-Q3-Lab2_Q3
         - file: 2301173-programming/lab2/L2-Q4-Lab2_Q4
         - file: 2301173-programming/lab2/L2-Q5-Lab2_Q5
         - file: 2301173-programming/lab2/L2-Q6-Lab2_Q6
         - file: 2301173-programming/lab2/L2-Q7-Lab2_Q7
-    - file: 2301173-programming/lab3/L3-Q1-Lab3_Q1
+    - file: 2301173-programming/lab3/lab3.md
       sections:
+        - file: 2301173-programming/lab3/L3-Q1-Lab3_Q1
         - file: 2301173-programming/lab3/L3-Q2-Lab3_Q2
         - file: 2301173-programming/lab3/L3-Q3-Lab3_Q3
         - file: 2301173-programming/lab3/L3-Q4-Lab3_Q4
