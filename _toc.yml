@@ -49,3 +49,9 @@ parts:
         - file: 2301173-programming/lab3/L3-Q6-Lab3_Q6
         - file: 2301173-programming/lab3/L3-Q7-Lab3_Q7
         - file: 2301173-programming/lab3/L3-Q8-Lab3_Q8
+    - file: 2301173-programming/lab4/lab4.md
+      sections:
+        - file: 2301173-programming/lab3/L4-Q1-Lab4_Q1
+        - file: 2301173-programming/lab3/L4-Q2-Lab4_Q2
+        - file: 2301173-programming/lab3/L4-Q3-Lab4_Q3
+        - file: 2301173-programming/lab3/L4-Q4-Lab4_Q4
