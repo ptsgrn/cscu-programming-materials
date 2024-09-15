@@ -5,59 +5,71 @@ format: jb-book
 root: intro
 
 parts:
-  - caption: Lectures
+  - caption: "Class materials"
     chapters:
-      - file: 2301173-programming/lecture/00_colab_intro
-      - file: 2301173-programming/lecture/Ch1 Python basics
-      - file: 2301173-programming/lecture/Ch2 Selection
-      - file: 2301173-programming/lecture/Ch3 Repetition
-      - file: 2301173-programming/lecture/Ch4 Function
-      - file: 2301173-programming/lecture/Ch5 Collection
-      - file: 2301173-programming/lecture/Ch6 List
-      - file: 2301173-programming/lecture/Ch7 Tuple
-      - file: 2301173-programming/lecture/Ch8 Dictionary
-      - file: 2301173-programming/lecture/Ch9 Object-oriented
-      - file: 2301173-programming/lecture/Ch10 PyGame
-  - caption: Labs
+      - file: 2301173-programming/2301173-programming.md
+        sections:
+          - file: 2301173-programming/lecture/lecture.md
+            sections:
+              - file: 2301173-programming/lecture/00_colab_intro
+              - file: 2301173-programming/lecture/Ch1 Python basics
+              - file: 2301173-programming/lecture/Ch2 Selection
+              - file: 2301173-programming/lecture/Ch3 Repetition
+              - file: 2301173-programming/lecture/Ch4 Function
+              - file: 2301173-programming/lecture/Ch5 Collection
+              - file: 2301173-programming/lecture/Ch6 List
+              - file: 2301173-programming/lecture/Ch7 Tuple
+              - file: 2301173-programming/lecture/Ch8 Dictionary
+              - file: 2301173-programming/lecture/Ch9 Object-oriented
+          # - file: 2301173-programming/lecture/Ch10 PyGame
+          - file: 2301173-programming/labs.md
+            sections:
+              - file: 2301173-programming/lab1/lab1.md
+                sections:
+                  - file: 2301173-programming/lab1/L1-Q1-Lab1_Q1
+                  - file: 2301173-programming/lab1/L1-Q2-Lab1_Q2
+                  - file: 2301173-programming/lab1/L1-Q3-Lab1_Q3
+                  - file: 2301173-programming/lab1/L1-Q4-Lab1_Q4
+                  - file: 2301173-programming/lab1/L1-Q5-Lab1_Q5
+                  - file: 2301173-programming/lab1/L1-Q6-Lab1_Q6
+                  - file: 2301173-programming/lab1/L1-Q7-Lab1_Q7
+                  - file: 2301173-programming/lab1/L1-Q8-Lab1_Q8
+              - file: 2301173-programming/lab2/lab2.md
+                sections:
+                  - file: 2301173-programming/lab2/L2-Q1-Lab2_Q1
+                  - file: 2301173-programming/lab2/L2-Q2-Lab2_Q2
+                  - file: 2301173-programming/lab2/L2-Q3-Lab2_Q3
+                  - file: 2301173-programming/lab2/L2-Q4-Lab2_Q4
+                  - file: 2301173-programming/lab2/L2-Q5-Lab2_Q5
+                  - file: 2301173-programming/lab2/L2-Q6-Lab2_Q6
+                  - file: 2301173-programming/lab2/L2-Q7-Lab2_Q7
+              - file: 2301173-programming/lab3/lab3.md
+                sections:
+                  - file: 2301173-programming/lab3/L3-Q1-Lab3_Q1
+                  - file: 2301173-programming/lab3/L3-Q2-Lab3_Q2
+                  - file: 2301173-programming/lab3/L3-Q3-Lab3_Q3
+                  - file: 2301173-programming/lab3/L3-Q4-Lab3_Q4
+                  - file: 2301173-programming/lab3/L3-Q5-Lab3_Q5
+                  - file: 2301173-programming/lab3/L3-Q6-Lab3_Q6
+                  - file: 2301173-programming/lab3/L3-Q7-Lab3_Q7
+                  - file: 2301173-programming/lab3/L3-Q8-Lab3_Q8
+              - file: 2301173-programming/lab4/lab4.md
+                sections:
+                  - file: 2301173-programming/lab4/L4-Q1-Lab4_Q1
+                  - file: 2301173-programming/lab4/L4-Q2-Lab4_Q2
+                  - file: 2301173-programming/lab4/L4-Q3-Lab4_Q3
+                  - file: 2301173-programming/lab4/L4-Q4-Lab4_Q4
+              - file: 2301173-programming/lab5/lab5.md
+                sections:
+                  - file: 2301173-programming/lab5/L5-Q1
+                  - file: 2301173-programming/lab5/L5-Q2
+                  - file: 2301173-programming/lab5/L5-Q3
+                  - file: 2301173-programming/lab5/L5-Q4
+  - caption: "Outside-class resources"
     chapters:
-    - file: 2301173-programming/lab1/lab1.md
-      sections:
-        - file: 2301173-programming/lab1/L1-Q1-Lab1_Q1
-        - file: 2301173-programming/lab1/L1-Q2-Lab1_Q2
-        - file: 2301173-programming/lab1/L1-Q3-Lab1_Q3
-        - file: 2301173-programming/lab1/L1-Q4-Lab1_Q4
-        - file: 2301173-programming/lab1/L1-Q5-Lab1_Q5
-        - file: 2301173-programming/lab1/L1-Q6-Lab1_Q6
-        - file: 2301173-programming/lab1/L1-Q7-Lab1_Q7
-        - file: 2301173-programming/lab1/L1-Q8-Lab1_Q8
-    - file: 2301173-programming/lab2/lab2.md
-      sections:
-        - file: 2301173-programming/lab2/L2-Q1-Lab2_Q1
-        - file: 2301173-programming/lab2/L2-Q2-Lab2_Q2
-        - file: 2301173-programming/lab2/L2-Q3-Lab2_Q3
-        - file: 2301173-programming/lab2/L2-Q4-Lab2_Q4
-        - file: 2301173-programming/lab2/L2-Q5-Lab2_Q5
-        - file: 2301173-programming/lab2/L2-Q6-Lab2_Q6
-        - file: 2301173-programming/lab2/L2-Q7-Lab2_Q7
-    - file: 2301173-programming/lab3/lab3.md
-      sections:
-        - file: 2301173-programming/lab3/L3-Q1-Lab3_Q1
-        - file: 2301173-programming/lab3/L3-Q2-Lab3_Q2
-        - file: 2301173-programming/lab3/L3-Q3-Lab3_Q3
-        - file: 2301173-programming/lab3/L3-Q4-Lab3_Q4
-        - file: 2301173-programming/lab3/L3-Q5-Lab3_Q5
-        - file: 2301173-programming/lab3/L3-Q6-Lab3_Q6
-        - file: 2301173-programming/lab3/L3-Q7-Lab3_Q7
-        - file: 2301173-programming/lab3/L3-Q8-Lab3_Q8
-    - file: 2301173-programming/lab4/lab4.md
-      sections:
-        - file: 2301173-programming/lab4/L4-Q1-Lab4_Q1
-        - file: 2301173-programming/lab4/L4-Q2-Lab4_Q2
-        - file: 2301173-programming/lab4/L4-Q3-Lab4_Q3
-        - file: 2301173-programming/lab4/L4-Q4-Lab4_Q4
-    - file: 2301173-programming/lab5/lab5.md
-      sections:
-        - file: 2301173-programming/lab5/L5-Q1
-        - file: 2301173-programming/lab5/L5-Q2
-        - file: 2301173-programming/lab5/L5-Q3
-        - file: 2301173-programming/lab5/L5-Q4
+      - file: resources/index.md
+        sections:
+          - file: resources/2024-1_before_midterm_summary/index.md
+            sections:
+            - file: resources/2024-1_before_midterm_summary/2301173 Unofficial Midterm Summary.ipynb
+            - file: resources/2024-1_before_midterm_summary/2301173 Unofficial Midterm Summary (solution).ipynb
