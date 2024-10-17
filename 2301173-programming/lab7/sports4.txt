@@ -1,0 +1,5 @@
+badminton 7
+yoga 10
+badminton 9
+yoga 10
+swimming 9
