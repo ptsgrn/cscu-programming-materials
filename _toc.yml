@@ -21,7 +21,11 @@ parts:
               - file: 2301173-programming/lecture/Ch7 Tuple
               - file: 2301173-programming/lecture/Ch8 Dictionary
               - file: 2301173-programming/lecture/Ch9 Object-oriented
-          # - file: 2301173-programming/lecture/Ch10 PyGame
+                sections: 
+                  - file: 2301173-programming/lecture/OO-Q1
+                  - file: 2301173-programming/lecture/OO-Q2
+                  - file: 2301173-programming/lecture/OO-Q3
+              - file: 2301173-programming/lecture/Ch10 PyGame
           - file: 2301173-programming/labs.md
             sections:
               - file: 2301173-programming/lab1/lab1.md
