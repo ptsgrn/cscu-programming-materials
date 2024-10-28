@@ -69,12 +69,14 @@ parts:
                   - file: 2301173-programming/lab5/L5-Q2
                   - file: 2301173-programming/lab5/L5-Q3
                   - file: 2301173-programming/lab5/L5-Q4
-              - file: 2301173-programming/lab6/lab6.md
+              - file: 2301173-programming/lab7/lab7.md
                 sections:
-                  - file: 2301173-programming/lab6/L6-Q1
-                  - file: 2301173-programming/lab6/L6-Q2
-                  - file: 2301173-programming/lab6/L6-Q3
-                  - file: 2301173-programming/lab6/L6-Q4
+                  - file: 2301173-programming/lab7/L7-Q1
+                  - file: 2301173-programming/lab7/L7-Q2
+              - file: 2301173-programming/lab8/lab8.md
+                sections:
+                  - file: 2301173-programming/lab8/L8-Q1
+                  - file: 2301173-programming/lab8/L8-Q2
   - caption: "Outside-class resources"
     chapters:
       - file: resources/index.md
