@@ -8,8 +8,6 @@ public class Rectangle extends Quadrilateral {
     @Override
     public double area() {
         double[] sorted = this.getSortedDist();
-
-        System.out.println(Arrays.toString(sorted));
         return sorted[0] * sorted[2];
     }
 }

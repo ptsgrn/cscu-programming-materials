@@ -8,7 +8,6 @@ public class Kite extends Quadrilateral {
     @Override
     public double area() {
         double[] sorted = this.getSortedDist();
-        System.out.println(Arrays.toString(sorted));
         if (sorted[3] == sorted[4]) {
             return (sorted[2] * sorted[5]) / 2;
         } else {
