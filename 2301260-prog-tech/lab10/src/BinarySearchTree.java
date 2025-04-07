@@ -18,10 +18,12 @@ public class BinarySearchTree {
             }
         }
 
-        if (data < preNode.getData()) {
-            preNode.setLeft(new BTNode(data));
-        } else {
-            preNode.setRight(new BTNode(data));
+        if (preNode != null) {
+            if (data < preNode.getData()) {
+                preNode.setLeft(new BTNode(data));
+            } else {
+                preNode.setRight(new BTNode(data));
+            }
         }
     }
 
