@@ -60,6 +60,7 @@ public class LinkedCollection implements SortCollection {
 
         if (count == 2) {
             this.head = null;
+            this.count = 0;
         }
 
         int accessCount = 0;
