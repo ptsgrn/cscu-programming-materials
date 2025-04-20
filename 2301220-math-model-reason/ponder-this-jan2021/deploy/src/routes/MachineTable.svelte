@@ -311,7 +311,13 @@
       y: number,
     ): StateTable {
       if (this.at(x, y) === char) {
-        this.setAt(x, y, 0);
+        if (char === "B") {
+          this.removeBPossition(x, y);
+        } else {
+          this.setAt(x, y, 0);
+        }
+      } else if (char === "B") {
+        this.addBPossition(x, y);
       } else {
         this.setAt(x, y, char);
       }
