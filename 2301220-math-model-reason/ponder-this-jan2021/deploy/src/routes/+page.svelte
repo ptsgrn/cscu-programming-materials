@@ -45,7 +45,9 @@
     > Visualization
   </h1>
 
-  <MachineTable />
+  <div class="my-4">
+    <MachineTable />
+  </div>
 </main>
 
 <footer class="text-xs footer bg-base-200 text-base-content footer-center">

@@ -226,6 +226,9 @@
       this.#board = Array.from({ length: this.#size }, () =>
         Array(this.#size).fill(0),
       );
+      for (const pos of this.#bspos) {
+        this.setAt(pos[0], pos[1], "B");
+      }
       this.#max_fillable_cells = this.#size * this.#size;
       this.#number_of_twos = 0;
       this.#isAutoPlay = false;
@@ -370,87 +373,93 @@
   {JSON.stringify(tableState.debug(), null, 2)}
 </pre> -->
 
-<div class="flex flex-col">
-  <div class="my-5 flex items-center justify-center h-full">
-    <div class="flex flex-col">
-      {#each tableState.board as row, rowIndex}
-        <div class="flex">
-          {#each row as cell, colIndex}
-            <div
-              style="width: {tableState.cellSizePx}; height: {tableState.cellSizePx}; font-size: {tableState.cellSize /
-                2}px"
-              class="flex group hover:border-2 hover:border-base-content select-none cursor-pointer items-center justify-center border border-gray-300/10 relative text-base-content/50"
-              class:text-grey-700={cell === 0}
-              class:bg-red-500={cell === 1}
-              class:bg-green-500={cell === 2}
-              class:bg-blue-500={cell === "B"}
-            >
+<div class="flex flex-col lg:flex-row gap-4">
+  <div
+    class="my-5 flex flex-col lg:min-w-1/2 gap-3 items-center justify-center h-full"
+  >
+    <div class="max-w-full overflow-x-auto lg:max-h-[85vh] p-2">
+      <div class="flex flex-col">
+        {#each tableState.board as row, rowIndex}
+          <div class="flex">
+            {#each row as cell, colIndex}
               <div
-                class="absolute flex-wrap text-xs left-2 bottom-2 group-hover:flex hidden"
+                style="width: {tableState.cellSizePx}; 
+              height: {tableState.cellSizePx}; font-size: {tableState.cellSize /
+                  2}px;
+                border-radius: {tableState.cellSize / 10}px;"
+                class="flex shrink-0 group hover:border-2 hover:border-base-content select-none cursor-pointer items-center justify-center border border-gray-300/10 relative text-base-content/50"
+                class:text-grey-700={cell === 0}
+                class:bg-red-500={cell === 1}
+                class:bg-green-500={cell === 2}
+                class:bg-blue-500={cell === "B"}
+                class:border-base-200={cell === "B"}
               >
-                <span class="input input-xs join-item w-max">
-                  {rowIndex}, {colIndex}
-                </span>
-                <button
-                  onclick={() => {
-                    tableState.x = colIndex;
-                    tableState.y = rowIndex;
-                  }}
-                  class="btn btn-xs"
+                <div
+                  class="absolute z-10 flex-wrap text-xs left-2 bottom-2 group-hover:flex hidden"
                 >
-                  *
-                </button>
-                <button
-                  onclick={() => {
-                    tableState.toggleCharAtPosition(0, colIndex, rowIndex);
-                  }}
-                  class="btn btn-xs"
-                >
-                  0
-                </button>
-                <button
-                  onclick={() => {
-                    tableState.toggleCharAtPosition("B", colIndex, rowIndex);
-                  }}
-                  class="btn btn-xs"
-                >
-                  B
-                </button>
-                <button
-                  onclick={() => {
-                    tableState.toggleCharAtPosition(1, colIndex, rowIndex);
-                  }}
-                  class="btn btn-xs"
-                >
-                  1
-                </button>
-                <button
-                  onclick={() => {
-                    tableState.toggleCharAtPosition(2, colIndex, rowIndex);
-                  }}
-                  class="btn btn-xs"
-                >
-                  2
-                </button>
-              </div>
-              {#if tableState.x === colIndex && tableState.y === rowIndex}
-                {#key tableState.facing}
-                  <div
-                    class="absolute rotate-45 border-t-2 border-l-2 border-blue-500 transition-transform duration-150"
-                    style="height: {tableState.cellSize * 0.5}px; 
+                  <span class="input input-xs join-item w-max">
+                    {rowIndex}, {colIndex}
+                  </span>
+                  <button
+                    onclick={() => {
+                      tableState.x = colIndex;
+                      tableState.y = rowIndex;
+                    }}
+                    class="btn btn-xs"
+                  >
+                    *
+                  </button>
+                  <button
+                    onclick={() => {
+                      tableState.toggleCharAtPosition(0, colIndex, rowIndex);
+                    }}
+                    class="btn btn-xs"
+                  >
+                    0
+                  </button>
+                  <button
+                    onclick={() => {
+                      tableState.toggleCharAtPosition("B", colIndex, rowIndex);
+                    }}
+                    class="btn btn-xs"
+                  >
+                    B
+                  </button>
+                  <button
+                    onclick={() => {
+                      tableState.toggleCharAtPosition(1, colIndex, rowIndex);
+                    }}
+                    class="btn btn-xs"
+                  >
+                    1
+                  </button>
+                  <button
+                    onclick={() => {
+                      tableState.toggleCharAtPosition(2, colIndex, rowIndex);
+                    }}
+                    class="btn btn-xs"
+                  >
+                    2
+                  </button>
+                </div>
+                {#if tableState.x === colIndex && tableState.y === rowIndex}
+                  {#key tableState.facing}
+                    <div
+                      class="absolute rotate-45 border-t-2 border-l-2 border-blue-500 transition-transform duration-150"
+                      style="height: {tableState.cellSize * 0.5}px; 
                       width: {tableState.cellSize * 0.5}px;"
-                    style:transform="rotate({tableState.facing * 90}deg);"
-                  ></div>
-                {/key}
-              {/if}
-              {cell}
-            </div>
-          {/each}
-        </div>
-      {/each}
+                      style:transform="rotate({tableState.facing * 90}deg);"
+                    ></div>
+                  {/key}
+                {/if}
+                {cell}
+              </div>
+            {/each}
+          </div>
+        {/each}
+      </div>
     </div>
-  </div>
-  <div class="flex items-center justify-center flex-col gap-3">
+
     <div class="flex gap-2">
       <button
         class="btn btn-primary btn-sm"
@@ -474,141 +483,220 @@
         >Reset</button
       >
     </div>
-    <div class="w-full">
-      <h2 class="text-lg">Current State</h2>
-      <div class="text-sm flex flex-col gap-2">
-        <div>Step #{tableState.step}</div>
-        <div>
-          Size: <input
-            type="number"
-            class="input input-sm w-16"
-            bind:value={tableState.size}
-          />
-        </div>
-        <div>
-          Cell Size: <input
-            type="number"
-            id="cellSize"
-            name="cellSize"
-            class="input input-sm w-24"
-            bind:value={tableState.cellSize}
-          />
-          <input
-            type="range"
-            id="cellSize"
-            name="cellSize"
-            class="range range-xs"
-            max="200"
-            bind:value={tableState.cellSize}
-          />
-        </div>
-        <div>
-          Facing:
-          <select
-            bind:value={tableState.currentFacing}
-            class="select select-sm w-24"
-            onchange={(e) => {
-              tableState.currentFacing = parseInt(e.target.value);
-            }}
-          >
-            {#each tableState.facing_labels as label, index}
-              <option value={index}>{label}</option>
-            {/each}
-          </select>
-        </div>
-        <div>
-          Position: <div class="join-horizontal inline-block">
-            <input
-              type="number"
-              class="input input-sm w-1/2 join-item"
-              bind:value={tableState.x}
-              min="0"
-              max={tableState.size - 1}
-            /><input
-              type="number"
-              class="input input-sm w-1/2 join-item"
-              bind:value={tableState.y}
-              min="0"
-              max={tableState.size - 1}
-            />
-          </div>
-          <div>
-            Time Interval:
-            <input
-              type="number"
-              class="input input-sm w-28"
-              bind:value={tableState.timeInterval}
-            />
-          </div>
-        </div>
-        <div>Current State: {tableState.currentPosState()}</div>
-        <div>
-          B positions:
-          <div
-            class="border-2 border-base-content/20 gap-2 my-2 rounded-md border-dashed p-2 flex flex-wrap"
-          >
-            {#each tableState.bspos as pos, i}
-              <!-- <input class="w-full">{pos[0]}, {pos[1]}</input> -->
-              <div class="join-horizontal join flex flex-row text-xs">
-                <span class="input join-item input-xs">
-                  {pos[0]}
-                </span>
-                <span class="input join-item input-xs">
-                  {pos[1]}
-                </span>
+  </div>
+
+  <div class="flex items-center justify-center flex-col gap-3 p-5 min-w-1/3">
+    <div
+      class="overflow-x-auto rounded-box border border-base-content/5 bg-base-100"
+    >
+      <table class="table table-zebra w-full">
+        <tbody>
+          <tr>
+            <th> Dimension (N) </th>
+            <td>
+              <input
+                type="number"
+                class="input input-sm"
+                bind:value={tableState.size}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th> Step </th>
+            <td>
+              #{tableState.step}
+            </td>
+          </tr>
+          <tr>
+            <th> Current Position </th>
+            <td>
+              <div class="join-horizontal join">
+                <label class="input input-sm join-item">
+                  x
+                  <input
+                    type="number"
+                    class="min-w-max text-end"
+                    bind:value={tableState.x}
+                    min="0"
+                    max={tableState.size - 1}
+                  />
+                </label>
+                <label class="input input-sm join-item">
+                  y
+                  <input
+                    type="number"
+                    class="min-w-max text-end"
+                    bind:value={tableState.y}
+                    min="0"
+                    max={tableState.size - 1}
+                  />
+                </label>
+              </div></td
+            >
+          </tr>
+          <tr>
+            <th> Facing </th>
+            <td>
+              <div class="join join-vertical">
                 <button
-                  class="btn btn-xs join-item"
+                  class="btn btn-sm join-item"
+                  class:btn-active={tableState.facing === 0}
                   onclick={() => {
-                    tableState.removeBPossition(pos[0], pos[1]);
+                    tableState.currentFacing = 0;
                   }}
                 >
-                  <span class="sr-only"> Remove </span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="lucide lucide-minus-icon lucide-minus size-3"
-                    ><path d="M5 12h14" /></svg
+                  {tableState.beautifyFacing(0)}
+                </button>
+
+                <div class="">
+                  <button
+                    class="btn btn-sm join-item"
+                    class:btn-active={tableState.facing === 3}
+                    onclick={() => {
+                      tableState.currentFacing = 3;
+                    }}
                   >
+                    {tableState.beautifyFacing(3)}
+                  </button>
+                  <button
+                    class="btn btn-sm"
+                    class:btn-active={tableState.facing === 1}
+                    onclick={() => {
+                      tableState.currentFacing = 1;
+                    }}
+                  >
+                    {tableState.beautifyFacing(1)}
+                  </button>
+                </div>
+                <button
+                  class="btn btn-sm join-item"
+                  class:btn-active={tableState.facing === 2}
+                  onclick={() => {
+                    tableState.currentFacing = 2;
+                  }}
+                >
+                  {tableState.beautifyFacing(2)}
                 </button>
               </div>
-            {:else}
-              <span class="text-xs text-base-content/40">No B positions rn</span
+            </td>
+          </tr>
+          <tr>
+            <th> Current State </th>
+            <td>
+              {tableState.currentPosState()}
+            </td>
+          </tr>
+          <tr>
+            <th> Cell Size </th>
+            <td>
+              <label class="input input-sm">
+                <input
+                  type="number"
+                  class=""
+                  bind:value={tableState.cellSize}
+                />
+                px
+              </label>
+              <input
+                type="range"
+                id="cellSize"
+                name="cellSize"
+                class="range lg:hidden"
+                min="2"
+                max="200"
+                bind:value={tableState.cellSize}
+              />
+            </td>
+          </tr>
+          <tr>
+            <th>
+              Time Interval (ms)
+              <span
+                class="tooltip tooltip-bottom"
+                data-tip="Time difference between each step in auto play mode"
               >
-            {/each}
-          </div>
-          <div class="join-horizontal flex">
-            <input
-              type="number"
-              class="input input-sm join-item"
-              bind:value={tempBPos[0]}
-              min="0"
-              max={tableState.size - 1}
-            /><input
-              type="number"
-              class="input input-sm join-item"
-              bind:value={tempBPos[1]}
-              min="0"
-              max={tableState.size - 1}
-            />
-            <button
-              class="btn btn-sm join-item"
-              onclick={() => {
-                tableState.addBPossition(tempBPos[0], tempBPos[1]);
-              }}
-            >
-              Add B
-            </button>
-          </div>
-        </div>
-      </div>
+                ?
+              </span>
+            </th>
+            <td>
+              <label class="input input-sm">
+                <input
+                  type="number"
+                  class=""
+                  bind:value={tableState.timeInterval}
+                />
+                ms
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <th> B positions </th>
+            <td class="flex flex-col gap-2">
+              <div class="gap-2 my-2 rounded-md border-dashed flex flex-wrap">
+                {#each tableState.bspos as pos, i}
+                  <!-- <input class="w-full">{pos[0]}, {pos[1]}</input> -->
+                  <div class="join-horizontal join flex flex-row text-xs">
+                    <span class="input join-item input-xs">
+                      {pos[0]}
+                    </span>
+                    <span class="input join-item input-xs">
+                      {pos[1]}
+                    </span>
+                    <button
+                      class="btn btn-xs join-item"
+                      onclick={() => {
+                        tableState.removeBPossition(pos[0], pos[1]);
+                      }}
+                    >
+                      <span class="sr-only"> Remove </span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-minus-icon lucide-minus size-3"
+                        ><path d="M5 12h14" /></svg
+                      >
+                    </button>
+                  </div>
+                {:else}
+                  <span class="text-xs text-base-content/40"
+                    >No B positions rn</span
+                  >
+                {/each}
+              </div>
+              <div class="join-horizontal join">
+                <input
+                  type="number"
+                  class="input input-sm join-item min-w-max"
+                  bind:value={tempBPos[0]}
+                  min="0"
+                  max={tableState.size - 1}
+                /><input
+                  type="number"
+                  class="input input-sm join-item min-w-max"
+                  bind:value={tempBPos[1]}
+                  min="0"
+                  max={tableState.size - 1}
+                />
+                <button
+                  class="btn btn-sm join-item"
+                  onclick={() => {
+                    tableState.addBPossition(tempBPos[0], tempBPos[1]);
+                  }}
+                >
+                  Add B
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  <div class="my-5 text-xs">Open Dev console to see the debug info :)</div>
 </div>
