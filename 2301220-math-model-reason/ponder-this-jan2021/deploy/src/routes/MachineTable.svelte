@@ -450,7 +450,7 @@
     <div class="w-full">
       <h2 class="text-lg">Current State</h2>
       <div class="text-sm flex flex-col gap-2">
-        <div>Step: {tableState.step}</div>
+        <div>Step #{tableState.step}</div>
         <div>
           Size: <input
             type="number"
@@ -583,4 +583,5 @@
       </div>
     </div>
   </div>
+  <div class="my-5 text-xs">Open Dev console to see the debug info :)</div>
 </div>
