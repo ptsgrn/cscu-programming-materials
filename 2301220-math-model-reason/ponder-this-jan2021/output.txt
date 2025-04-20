@@ -1,0 +1,207 @@
+Step: 1
+Position: 1, 0
+Facing: right →
+Board:
+1 0 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+
+Step: 2
+Position: 1, 1
+Facing: down ↓
+Board:
+1 1 0 0
+0 0 0 0
+0 0 0 0
+0 0 0 0
+
+Step: 3
+Position: 0, 1
+Facing: ← left
+Board:
+1 1 0 0
+0 1 0 0
+0 0 0 0
+0 0 0 0
+
+Step: 4
+Position: 0, 0
+Facing: up ↑
+Board:
+1 1 0 0
+1 1 0 0
+0 0 0 0
+0 0 0 0
+
+Step: 5
+Position: 3, 0
+Facing: ← left
+Board:
+2 1 0 0
+1 1 0 0
+0 0 0 0
+0 0 0 0
+
+Step: 6
+Position: 3, 3
+Facing: up ↑
+Board:
+2 1 0 1
+1 1 0 0
+0 0 0 0
+0 0 0 0
+
+Step: 7
+Position: 0, 3
+Facing: right →
+Board:
+2 1 0 1
+1 1 0 0
+0 0 0 0
+0 0 0 1
+
+Step: 8
+Position: 0, 0
+Facing: down ↓
+Board:
+2 1 0 1
+1 1 0 0
+0 0 0 0
+1 0 0 1
+
+Step: 9
+Position: 0, 1
+Facing: down ↓
+Board:
+2 1 0 1
+1 1 0 0
+0 0 0 0
+1 0 0 1
+
+Step: 10
+Position: 1, 1
+Facing: right →
+Board:
+2 1 0 1
+2 1 0 0
+0 0 0 0
+1 0 0 1
+
+Step: 11
+Position: 1, 0
+Facing: up ↑
+Board:
+2 1 0 1
+2 2 0 0
+0 0 0 0
+1 0 0 1
+
+Step: 12
+Position: 0, 0
+Facing: ← left
+Board:
+2 2 0 1
+2 2 0 0
+0 0 0 0
+1 0 0 1
+
+Step: 13
+Position: 3, 0
+Facing: ← left
+Board:
+2 2 0 1
+2 2 0 0
+0 0 0 0
+1 0 0 1
+
+Step: 14
+Position: 3, 1
+Facing: down ↓
+Board:
+2 2 0 2
+2 2 0 0
+0 0 0 0
+1 0 0 1
+
+Step: 15
+Position: 2, 1
+Facing: ← left
+Board:
+2 2 0 2
+2 2 0 1
+0 0 0 0
+1 0 0 1
+
+Step: 16
+Position: 2, 0
+Facing: up ↑
+Board:
+2 2 0 2
+2 2 1 1
+0 0 0 0
+1 0 0 1
+
+Step: 17
+Position: 3, 0
+Facing: right →
+Board:
+2 2 1 2
+2 2 1 1
+0 0 0 0
+1 0 0 1
+
+Step: 18
+Position: 0, 0
+Facing: right →
+Board:
+2 2 1 2
+2 2 1 1
+0 0 0 0
+1 0 0 1
+
+Step: 19
+Position: 1, 0
+Facing: right →
+Board:
+2 2 1 2
+2 2 1 1
+0 0 0 0
+1 0 0 1
+
+Step: 20
+Position: 2, 0
+Facing: right →
+Board:
+2 2 1 2
+2 2 1 1
+0 0 0 0
+1 0 0 1
+
+Step: 21
+Position: 2, 3
+Facing: up ↑
+Board:
+2 2 2 2
+2 2 1 1
+0 0 0 0
+1 0 0 1
+
+Step: 22
+Position: 3, 3
+Facing: right →
+Board:
+2 2 2 2
+2 2 1 1
+0 0 0 0
+1 0 1 1
+
+Step: 23
+Position: 3, 2
+Facing: up ↑
+Board:
+2 2 2 2
+2 2 1 1
+0 0 0 0
+1 0 1 2
+
