@@ -14,6 +14,8 @@
     #isAutoPlay: boolean = $state(false);
     #timeInterval: number = $state(200);
     #bspos: number[][] = $state([]);
+    #timeStart: Date = $state(new Date());
+    #timeEnd: Date = $state(new Date());
 
     constructor(size: number) {
       this.#step = 0;
@@ -175,6 +177,9 @@
 
     toggleAutoPlay(): void {
       this.#isAutoPlay = !this.#isAutoPlay;
+      if (this.#isAutoPlay) {
+        this.#timeStart = new Date();
+      }
       let interval: number | null = null;
       if (this.#isAutoPlay) {
         interval = setInterval(() => {
@@ -182,12 +187,21 @@
             this.#isAutoPlay = false;
             if (interval) {
               clearInterval(interval);
+              this.#timeEnd = new Date();
+              const timeDiff =
+                this.#timeEnd.getTime() - this.#timeStart.getTime();
+              this.log(`Full table reached in ${timeDiff}ms`);
             }
             return;
           }
           if (!this.#isAutoPlay) {
             if (interval) {
               clearInterval(interval);
+              this.log("Auto play stopped");
+              this.#timeEnd = new Date();
+              const timeDiff =
+                this.#timeEnd.getTime() - this.#timeStart.getTime();
+              this.log(`Auto play stopped after ${timeDiff}ms`);
             }
             return;
           }
@@ -196,6 +210,10 @@
       } else {
         if (interval) {
           clearInterval(interval);
+          this.log("Auto play stopped");
+          this.#timeEnd = new Date();
+          const timeDiff = this.#timeEnd.getTime() - this.#timeStart.getTime();
+          this.log(`Auto play stopped after ${timeDiff}ms`);
         }
       }
     }
@@ -355,15 +373,18 @@
             <div
               style="width: {tableState.cellSizePx}; height: {tableState.cellSizePx}; font-size: {tableState.cellSize /
                 2}px"
-              class="flex group items-center justify-center border border-gray-300/10 relative text-base-content/50"
+              class="flex group hover:border-2 hover:border-base-content select-none cursor-pointer items-center justify-center border border-gray-300/10 relative text-base-content/50"
               class:text-grey-700={cell === 0}
               class:bg-red-500={cell === 1}
               class:bg-green-500={cell === 2}
               class:bg-blue-500={cell === "B"}
             >
               <div
-                class="absolute flex-wrap text-xs left-1 bottom-1 group-hover:flex hidden"
+                class="absolute flex-wrap text-xs left-2 bottom-2 group-hover:flex hidden"
               >
+                <span class="input input-xs join-item w-max">
+                  {rowIndex}, {colIndex}
+                </span>
                 <button
                   onclick={() => {
                     tableState.x = colIndex;
