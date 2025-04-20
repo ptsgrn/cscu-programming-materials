@@ -55,7 +55,7 @@
     >
   </div>
   <a
-    href="https://github.com/ptsgrn/cscu-programming-materials/tree/main/2301220-math-model-reason/ponder-this-jan2021/visualize"
+    href="https://github.com/ptsgrn/cscu-programming-materials/tree/main/2301220-math-model-reason/ponder-this-jan2021"
   >
     GitHub
   </a>
