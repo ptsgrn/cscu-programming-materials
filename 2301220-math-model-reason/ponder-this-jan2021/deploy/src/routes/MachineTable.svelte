@@ -31,13 +31,14 @@
       ];
       this.#max_fillable_cells = size * size;
       this.#number_of_twos = 0;
-      this.#cellSize = 30; // Default cell size
+      this.#cellSize = 100; // Default cell size
       this.#isAutoPlay = false;
       this.#timeInterval = 100; // Default time interval for auto play
     }
 
     isFullTable(): boolean {
-      return this.#number_of_twos === this.#max_fillable_cells;
+      // return this.#number_of_twos === this.#max_fillable_cells;
+      return false; // กุ ขก ละ
     }
 
     at(x: number, y: number) {
@@ -286,6 +287,19 @@
       return this;
     }
 
+    toggleCharAtPosition(
+      char: string | number,
+      x: number,
+      y: number,
+    ): StateTable {
+      if (this.at(x, y) === char) {
+        this.setAt(x, y, 0);
+      } else {
+        this.setAt(x, y, char);
+      }
+      return this;
+    }
+
     removeBPossition(x: number, y: number): StateTable {
       this.setAt(x, y, 0);
       this.#bspos = this.#bspos.filter((pos) => pos[0] !== x || pos[1] !== y);
@@ -341,16 +355,61 @@
             <div
               style="width: {tableState.cellSizePx}; height: {tableState.cellSizePx}; font-size: {tableState.cellSize /
                 2}px"
-              class="flex items-center justify-center border border-gray-300/10 relative text-base-content/50"
+              class="flex group items-center justify-center border border-gray-300/10 relative text-base-content/50"
               class:text-grey-700={cell === 0}
               class:bg-red-500={cell === 1}
               class:bg-green-500={cell === 2}
               class:bg-blue-500={cell === "B"}
             >
+              <div
+                class="absolute flex-wrap text-xs left-1 bottom-1 group-hover:flex hidden"
+              >
+                <button
+                  onclick={() => {
+                    tableState.x = colIndex;
+                    tableState.y = rowIndex;
+                  }}
+                  class="btn btn-xs"
+                >
+                  *
+                </button>
+                <button
+                  onclick={() => {
+                    tableState.toggleCharAtPosition(0, colIndex, rowIndex);
+                  }}
+                  class="btn btn-xs"
+                >
+                  0
+                </button>
+                <button
+                  onclick={() => {
+                    tableState.toggleCharAtPosition("B", colIndex, rowIndex);
+                  }}
+                  class="btn btn-xs"
+                >
+                  B
+                </button>
+                <button
+                  onclick={() => {
+                    tableState.toggleCharAtPosition(1, colIndex, rowIndex);
+                  }}
+                  class="btn btn-xs"
+                >
+                  1
+                </button>
+                <button
+                  onclick={() => {
+                    tableState.toggleCharAtPosition(2, colIndex, rowIndex);
+                  }}
+                  class="btn btn-xs"
+                >
+                  2
+                </button>
+              </div>
               {#if tableState.x === colIndex && tableState.y === rowIndex}
                 {#key tableState.facing}
                   <div
-                    class="absolute rotate-45 border-t-2 border-l-2 border-blue-500"
+                    class="absolute rotate-45 border-t-2 border-l-2 border-blue-500 transition-transform duration-150"
                     style="height: {tableState.cellSize * 0.5}px; 
                       width: {tableState.cellSize * 0.5}px;"
                     style:transform="rotate({tableState.facing * 90}deg);"
@@ -412,7 +471,7 @@
             id="cellSize"
             name="cellSize"
             class="range range-xs"
-            max="150"
+            max="200"
             bind:value={tableState.cellSize}
           />
         </div>

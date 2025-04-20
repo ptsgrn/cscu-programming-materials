@@ -10,7 +10,7 @@
       class="link"
       href="https://research.ibm.com/haifa/ponderthis/challenges/January2021.html"
       >January 2021</a
-    >
+    > Visualization
   </h1>
 
   <MachineTable />
