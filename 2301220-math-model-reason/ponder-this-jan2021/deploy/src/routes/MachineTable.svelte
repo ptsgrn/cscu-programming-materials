@@ -398,7 +398,7 @@
                   class="absolute z-10 flex-wrap text-xs left-2 bottom-2 group-hover:flex hidden"
                 >
                   <span class="input input-xs join-item w-max">
-                    {rowIndex}, {colIndex}
+                    {colIndex},{rowIndex}
                   </span>
                   <button
                     onclick={() => {
