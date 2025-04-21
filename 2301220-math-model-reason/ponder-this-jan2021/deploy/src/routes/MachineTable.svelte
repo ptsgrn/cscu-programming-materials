@@ -395,7 +395,7 @@
                 class:border-base-200={cell === "B"}
               >
                 <div
-                  class="absolute z-10 flex-wrap text-xs left-2 bottom-2 group-hover:flex hidden"
+                  class="absolute z-50 flex-row text-xs left-2 bottom-2 group-hover:flex hidden"
                 >
                   <span class="input input-xs join-item w-max">
                     {colIndex},{rowIndex}
