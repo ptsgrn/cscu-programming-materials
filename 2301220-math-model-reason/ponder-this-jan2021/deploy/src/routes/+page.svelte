@@ -2,6 +2,7 @@
   import "@fontsource/ibm-plex-mono";
 
   import MachineTable from "./MachineTable.svelte";
+    import Canvas from './Canvas.svelte';
 </script>
 
 <svelte:head>
@@ -46,7 +47,8 @@
   </h1>
 
   <div class="my-4">
-    <MachineTable />
+    <!-- <MachineTable /> -->
+     <Canvas />
   </div>
 </main>
 
