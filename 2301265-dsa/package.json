@@ -1,0 +1,14 @@
+{
+	"name": "2301265-dsa",
+	"private": true,
+	"devDependencies": {
+		"@biomejs/biome": "2.1.4",
+		"@types/bun": "latest"
+	},
+	"peerDependencies": {
+		"typescript": "^5"
+	},
+	"dependencies": {
+		"lefthook": "^1.12.3"
+	}
+}
