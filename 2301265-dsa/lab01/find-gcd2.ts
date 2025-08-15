@@ -2,7 +2,7 @@ import { commonFactors } from "./find-gcd1";
 
 const primeList: number[] = [];
 
-function primeFacSeive(n: number) {
+export function primeFacSeive(n: number) {
 	let opCount = 0;
 	const factors: number[] = [];
 
