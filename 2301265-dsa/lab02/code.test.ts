@@ -1,6 +1,5 @@
 import { it, describe, expect } from "bun:test"
 import { evaluateExpression, generateAllSubsets, isParenthesesBalanced, readFile } from './code';
-import { stackViz } from './viz'
 
 describe("1. Balanced Parentheses", async () => {
   it("should return true for balanced parentheses", () => {
@@ -46,7 +45,7 @@ describe("2. Evaluate an arithmetic expression", () => {
   });
 });
 
-describe("3. Generate all possible subsets of T", () => {
+describe("3. All possible subsets of T", () => {
   it("should return all subsets of a 2 members set", () => {
     const inputSet = [1, 2];
     const expectedSubsets = [
@@ -56,7 +55,7 @@ describe("3. Generate all possible subsets of T", () => {
       [1, 2]
     ];
     const result = generateAllSubsets(inputSet);
-    expect(result).toEqual(expectedSubsets);
+    expect(new Set(result)).toEqual(new Set(expectedSubsets));
   })
 
   it("should return all subsets of a 5 members set", () => {

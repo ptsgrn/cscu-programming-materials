@@ -150,8 +150,8 @@ export function evaluateExpression(input: string) {
   return Number(valuesStack.pop())
 }
 
-export function generateAllSubsets<T>(set: T[]): T[][] {
-  const subsets: T[][] = [[]]; // Start with the empty set
+export function generateAllSubsets(set: number[]): number[][] {
+  const subsets: number[][] = [[]]; // Start with the empty set
 
   const viz = () => JSON.stringify({
     "kind": { "grid": true },
