@@ -1,29 +1,54 @@
 import { join } from "node:path"
-import { stackViz } from './viz';
 
-export async function readFile(filename: string) {
-  return Bun.file(join(__dirname, filename)).text();
+export async function readTestcaseFile(filename: string) {
+  return Bun.file(join(`${__dirname}/testcases`, filename)).text();
+}
+
+function removeComment(commentRegex: RegExp) {
+  return (input: string) => input.replace(commentRegex, '');
 }
 
 export function isParenthesesBalanced(input: string): boolean {
   const stack: string[] = [];
+  const quoteStack: string[] = [];
   const pairsMap: Map<string, string> = new Map([
     ['(', ')'],
     ['{', '}'],
-    ['[', ']']
+    ['[', ']'],
   ]);
+  // console.log(input)
+  input = removeComment(/#.*$/gm)(input); // Remove comments
+  // console.log(input)
+  const quotesList = ["'", '"', '`'];
+  let isText = false;
 
   for (const char of input) {
-    if (pairsMap.has(char)) {
+    // console.log({ char })
+    if (pairsMap.has(char) && !isText) {
       stack.push(char);
-    } else if (Array.from(pairsMap.values()).includes(char)) {
+    } else if (Array.from(pairsMap.values()).includes(char) && !isText) {
       if (stack.length === 0 || pairsMap.get(stack.pop()!) !== char) {
+        // console.log("not balance", { stack, char })
         return false;
+      }
+    } else if (quotesList.includes(char)) {
+      // console.log(char)
+      // console.log({ char, isText })
+      if (quoteStack.length === 0) {
+        isText = true;
+        quoteStack.push(char)
+      }
+      else if (quoteStack[quoteStack.length - 1] === char) {
+        quoteStack.pop();
+        isText = false;
+      } else {
+        // If the quote is not the same as the last one, we are still in text mode
+        isText = true;
       }
     }
   }
 
-  return stack.length === 0;
+  return stack.length === 0 && quoteStack.length === 0
 }
 
 export function applyOperator(leftOperand: string, rightOperand: string, operator: string): string {
@@ -59,7 +84,6 @@ export function getPrecedence(operator: string): number {
 }
 
 export function evaluateExpression(input: string) {
-
   const balanced = isParenthesesBalanced(input);
   if (!balanced) {
     throw new SyntaxError("Invalid expression: Unbalanced parentheses");
@@ -74,7 +98,7 @@ export function evaluateExpression(input: string) {
   const tokens = input
     .split(/(\s+|\(|\)|\+|\-|\*|\/|\d+)/)
     .filter(token => token.trim() !== '')
-
+  // console.log({ tokens })
   for (const token of tokens) {
     if (!isNaN(Number(token))) {
       // 1.2.1 A number: push it onto the value stack.
@@ -177,5 +201,6 @@ export function generateAllSubsets(set: number[]): number[][] {
     subsets.push(...newSubsets);
   }
 
+  // console.log(subsets)
   return subsets;
 }

@@ -1,5 +1,9 @@
 import { it, describe, expect } from "bun:test"
-import { evaluateExpression, generateAllSubsets, isParenthesesBalanced, readFile } from './code';
+import { evaluateExpression, generateAllSubsets, isParenthesesBalanced, readTestcaseFile } from './code';
+
+function isTestcasePythonBalanced(input: string): boolean {
+  return input.includes("The file is balanced.")
+}
 
 describe("1. Balanced Parentheses", async () => {
   it("should return true for balanced parentheses", () => {
@@ -14,11 +18,18 @@ describe("1. Balanced Parentheses", async () => {
     expect(result).toBe(false);
   });
 
+  for (const i of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) {
+    it(`should return true for balanced parentheses in test${i}.py`, async () => {
+      const testCaseText = await readTestcaseFile(`test${i}.py`)
+      const result = isParenthesesBalanced(testCaseText);
+      expect(result).toBe(isTestcasePythonBalanced(testCaseText));
+    });
+  }
 
-  it("should return true for balanced parentheses in test1.py", async () => {
-    const testCaseText = await readFile("test1.py")
-    const result = isParenthesesBalanced(testCaseText);
-    expect(result).toBe(true);
+  it("should return true for balanced parentheses", () => {
+    const input = '(a + b) " ` " * (c - d)';
+    const result = isParenthesesBalanced(input);
+    expect(result).toBe(false);
   });
 })
 
@@ -99,4 +110,3 @@ describe("3. All possible subsets of T", () => {
       .toEqual(new Set(expectedSubsets));
   })
 })
-
