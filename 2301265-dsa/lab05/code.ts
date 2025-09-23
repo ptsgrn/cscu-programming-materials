@@ -1,5 +1,3 @@
-import { formatResult } from "./utils";
-
 export interface CoinChange {
   amount: number;
   denominations: number[];
@@ -23,15 +21,15 @@ export function coinChange(
   let waysList: number[][] = [];
   for (const coin of denominations) {
     if (n - coin >= 0) {
-      console.log(
-        `${"  ".repeat(depth)} Checking coin ${coin} for amount ${n}`,
-      );
+      // console.log(
+      //   `${"  ".repeat(depth)} Checking coin ${coin} for amount ${n}`,
+      // );
       const result = coinChange(n - coin, denominations, memory, depth + 1);
-      console.log(
-        `${"  ".repeat(depth + 1)} Result for amount ${n - coin} ${
-          memory.has(n - coin) ? "(memorized)" : ""
-        }`,
-      );
+      // console.log(
+      //   `${"  ".repeat(depth + 1)} Result for amount ${n - coin} ${
+      //     memory.has(n - coin) ? "(memorized)" : ""
+      //   }`,
+      // );
       if (result.waysList) {
         for (const way of result.waysList) {
           const prevValue = way[way.length - 1] || 0;
