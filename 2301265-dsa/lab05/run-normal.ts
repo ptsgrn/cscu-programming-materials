@@ -18,7 +18,7 @@ let normalTestcases: string[] = [
   "5.11",
   "5.12",
   "5.13",
-  // "5.14(Extra)",
+  "5.14(Extra)",
 ];
 
 if (Bun.argv.slice(2).length !== 0) {
@@ -27,10 +27,10 @@ if (Bun.argv.slice(2).length !== 0) {
 
 for (const tc of normalTestcases) {
   const { amount, denominations } = await readTestcaseFile(`${tc}.txt`);
-  // console.log(c.grey(`========= [${c.white(tc)}] =========`));
-  // const resultCoinChange = coinChange(amount, denominations);
-  // console.log(c.bold("-- Coin Change --"));
-  // console.log(formatResult(resultCoinChange));
+  console.log(c.grey(`========= [${c.white(tc)}] =========`));
+  const resultCoinChange = coinChange(amount, denominations);
+  console.log(c.bold("-- Coin Change --"));
+  console.log(formatResult(resultCoinChange));
   console.log(c.bold("-- Minimum Coin Change --"));
   const result = minimumCoinChange(amount, denominations);
   console.log(
