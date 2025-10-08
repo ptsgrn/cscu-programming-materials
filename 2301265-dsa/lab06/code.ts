@@ -46,7 +46,7 @@ export function triangulationConvexPolygonCostTopDown(
   return { cost: minCost, memo };
 }
 
-export function triangulationConvexPolygonCostBottomUp(ps: Point[]): number {
+export function minTriangulationConvexPolygonCostBottomUp(ps: Point[]): number {
   const distance = (p1: Point, p2: Point) => {
     return Math.sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2);
   };
@@ -62,6 +62,14 @@ export function triangulationConvexPolygonCostBottomUp(ps: Point[]): number {
       dp[i][j] = Infinity;
 
       for (let k = i + 1; k < j; k++) {
+        // console.log({
+        //   length,
+        //   i,
+        //   j,
+        //   k,
+        //   dp_ik: dp[i][k],
+        //   dp_kj: dp[k][j],
+        // })
         const cost =
           distance(ps[i], ps[k]) +
           distance(ps[k], ps[j]) +
@@ -73,27 +81,86 @@ export function triangulationConvexPolygonCostBottomUp(ps: Point[]): number {
     }
   }
 
-  console.log({ dp });
+  // console.table({ dp });
 
   return dp[0][n - 1];
 }
 
-console.log(
-  triangulationConvexPolygonCostTopDown([
-    P(0, 0),
-    P(1, 0),
-    P(2, 1),
-    P(1, 2),
-    P(0, 2),
-  ]).cost
-);
+export function sortPointsClockwise(points: Point[]): Point[] {
+  if (points.length === 0) return [];
 
-console.log(
-  triangulationConvexPolygonCostBottomUp([
-    P(0, 0),
-    P(1, 0),
-    P(2, 1),
-    P(1, 2),
-    P(0, 2),
-  ])
-);
+  // Find the centroid of the points
+  const centroid = points.reduce(
+    (acc, p) => new Point(acc.x + p.x, acc.y + p.y),
+    new Point(0, 0)
+  );
+  centroid.x /= points.length;
+  centroid.y /= points.length;
+
+  // Sort points based on the angle from the centroid
+  return points.toSorted((a, b) => {
+    const angleA = Math.atan2(a.y - centroid.y, a.x - centroid.x);
+    const angleB = Math.atan2(b.y - centroid.y, b.x - centroid.x);
+    return angleA - angleB;
+  });
+}
+
+export function maxTriangulationConvexPolygonCostBottomUp(ps: Point[]): number {
+  const distance = (p1: Point, p2: Point) => {
+    return Math.sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2);
+  };
+
+  const n = ps.length;
+  if (n < 3) return 0;
+
+  const dp: number[][] = Array.from({ length: n }, () => Array(n).fill(0));
+
+  for (let length = 3; length <= n; length++) {
+    for (let i = 0; i <= n - length; i++) {
+      const j = i + length - 1;
+      dp[i][j] = -Infinity;
+
+      for (let k = i + 1; k < j; k++) {
+        // console.log({
+        //   length,
+        //   i,
+        //   j,
+        //   k,
+        //   dp_ik: dp[i][k],
+        //   dp_kj: dp[k][j],
+        // })
+        const cost =
+          distance(ps[i], ps[k]) +
+          distance(ps[k], ps[j]) +
+          distance(ps[i], ps[j]) +
+          dp[i][k] +
+          dp[k][j];
+        dp[i][j] = Math.max(dp[i][j], cost);
+      }
+    }
+  }
+
+  // console.log({ dp });
+
+  return dp[0][n - 1];
+}
+
+// console.log(
+//   triangulationConvexPolygonCostTopDown([
+//     P(0, 0),
+//     P(1, 0),
+//     P(2, 1),
+//     P(1, 2),
+//     P(0, 2),
+//   ]).cost
+// );
+
+// console.log(
+//   triangulationConvexPolygonCostBottomUp([
+//     P(0, 0),
+//     P(1, 0),
+//     P(2, 1),
+//     P(1, 2),
+//     P(0, 2),
+//   ])
+// );
