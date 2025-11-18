@@ -1,0 +1,4 @@
+A B C D
+10 70
+C C D C C B D B A B
+B D B A B C C C C C B A B D B C C D C C B D B A C C D C C B D B A B C C D C C B A B B A B D B C C D C C D C A C C D C C B D B A B C C D C C

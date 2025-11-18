@@ -1,0 +1,4 @@
+A B C D E
+10 78
+C B C C D A D A A E
+C B C C D A D A A E A A D A D C C B C C A A B C C E D A D D A A E A D C B C B C C D A D E A A A E A B C D C B A D E D B A C E B B A A C E E A A D A D C C B

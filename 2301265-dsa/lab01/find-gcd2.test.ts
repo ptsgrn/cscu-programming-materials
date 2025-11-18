@@ -3,19 +3,19 @@ import { test, expect, describe } from "bun:test";
 import { join } from "path";
 
 test("primeFacSeive", () => {
-  expect(primeFacSeive(12)).toEqual({
-    n: 1,
-    factors: [2, 2, 3],
-    opCount: 3,
-  });
+	expect(primeFacSeive(12)).toEqual({
+		n: 1,
+		factors: [2, 2, 3],
+		opCount: 3,
+	});
 });
 
 test("primeFacSeive with 18", () => {
-  expect(primeFacSeive(18)).toEqual({
-    n: 1,
-    factors: [2, 3, 3],
-    opCount: 3,
-  });
+	expect(primeFacSeive(18)).toEqual({
+		n: 1,
+		factors: [2, 3, 3],
+		opCount: 3,
+	});
 });
 
 // test("primeFacSeive with 100000000", () => {

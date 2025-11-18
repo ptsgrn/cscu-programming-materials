@@ -5,6 +5,9 @@
 		"@biomejs/biome": "2.1.4",
 		"@types/bun": "latest"
 	},
+	"scripts": {
+		"format": "biome format --write --no-errors-on-unmatched"
+	},
 	"peerDependencies": {
 		"typescript": "^5"
 	},

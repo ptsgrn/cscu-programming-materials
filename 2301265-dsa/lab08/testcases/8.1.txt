@@ -1,0 +1,4 @@
+A B C
+6 35
+A A C C B A
+A A A C A A C C A A C C A B C C A A A A A C C B B A A C C B A A C C B

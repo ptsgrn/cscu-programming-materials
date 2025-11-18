@@ -1,0 +1,4 @@
+A B C D E
+12 100
+D D A D D A A B D E C D
+A B C D A C E D D A D D A A B D E C D D A D D A A B D E C D C E D B A A D D A D D D A E E C C D E D B A B D C C D A D A A D B C C D C D A B B E B C D C A B C B E A E D D A C A B C A B A A A D A B C D
