@@ -107,14 +107,14 @@ export function generateAPFreeSequence_Iterative(n: number): number[] {
 }
 
 // // ตัวอย่างการใช้งาน
-// const n_Iterative = 5;
-// const sequence_Iterative = generateAPFreeSequence_Iterative(n_Iterative);
-// console.log(`Iterative (n=${n_Iterative}): ${sequence_Iterative.join(" ")}`); // Output: 0 4 2 1 5 3
+const n_Iterative = 5;
+const sequence_Iterative = generateAPFreeSequence_Iterative(n_Iterative);
+console.log(`Iterative (n=${n_Iterative}): ${sequence_Iterative.join(" ")}`); // Output: 0 4 2 1 5 3
 
-// const n_Iterative_large = 10;
-// console.log(
-//   `Iterative (n=${n_Iterative_large}): ${generateAPFreeSequence_Iterative(
-//     n_Iterative_large
-//   ).join(" ")}`
-// );
+const n_Iterative_large = 10;
+console.log(
+	`Iterative (n=${n_Iterative_large}): ${generateAPFreeSequence_Iterative(
+		n_Iterative_large,
+	).join(" ")}`,
+);
 // // Output: 0 8 4 2 6 10 1 9 5 3 7

@@ -129,11 +129,21 @@ export function kmpSearchCircular(text: string, pattern: string): KMPResult {
 
 	// Filter occurrences to only include those that start within the original text length
 	const filteredOccurrences = kmpResult.occurrences
-		.filter((occ) => occ.startIndex < text.length)
+		// .filter((occ) => occ.startIndex < text.length)
 		.map((occ) => ({
-			startIndex: occ.startIndex,
+			startIndex:
+				occ.startIndex < text.length
+					? occ.startIndex + 1
+					: occ.startIndex - text.length + 1,
 			endIndex: occ.endIndex,
-			direction: occ.startIndex <= occ.endIndex ? "LR" : "RL",
+			direction:
+				occ.startIndex < text.length
+					? occ.startIndex <= occ.endIndex
+						? "LR"
+						: "RL"
+					: occ.startIndex <= occ.endIndex
+						? "RL"
+						: "LR",
 		}));
 
 	return {
@@ -150,11 +160,23 @@ export function naiveSearchCircular(
 	const occurrences = naiveSearch(circularText, pattern);
 
 	// Filter occurrences to only include those that start within the original text length
-	return occurrences
-		.filter((occ) => occ.startIndex < text.length)
-		.map((occ) => ({
-			startIndex: occ.startIndex,
-			endIndex: occ.endIndex,
-			direction: occ.startIndex <= occ.endIndex ? "LR" : "RL",
-		}));
+	return (
+		occurrences
+			// .filter((occ) => occ.startIndex < text.length)
+			.map((occ) => ({
+				startIndex:
+					occ.startIndex < text.length
+						? occ.startIndex + 1
+						: occ.startIndex - text.length + 1,
+				endIndex: occ.endIndex,
+				direction:
+					occ.startIndex < text.length
+						? occ.startIndex <= occ.endIndex
+							? "LR"
+							: "RL"
+						: occ.startIndex <= occ.endIndex
+							? "RL"
+							: "LR",
+			}))
+	);
 }

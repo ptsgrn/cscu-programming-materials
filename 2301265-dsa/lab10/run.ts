@@ -19,10 +19,13 @@ for (const tc of testcases) {
 	const inputs = testcaseText.split("\n").map((v) => v.split(" ").map(Number));
 	const [v, e, t] = inputs[0] as [number, number, number];
 	const edgeList: EdgeList = [];
-	for (let i = 1; i < e; i++) {
+	for (let i = 1; i <= e; i++) {
 		const [u, v, w] = (inputs[i] as [number, number, number]) || [0, 0, 0];
 		edgeList.push([u, v, w]);
 	}
+
+	// console.log(`Graph with ${v} vertices and ${e} edges.`);
+	// console.log({ edgeList });
 
 	for (let i = 0; i < t; i++) {
 		const [start, end] = inputs[e + 1 + i] as [number, number];

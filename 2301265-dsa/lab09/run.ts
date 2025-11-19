@@ -1,5 +1,5 @@
 import { join } from "node:path";
-import { isFullTravelable } from "./code";
+import { countScc, countSinkSourcesScc, isFullTravelable } from "./code";
 // import { checkFullTravelable } from "./code";
 
 let testcases = ["9.0", "9.0.1", "9.1", "9.2", "9.3", "9.4", "9.5", "9.6"];
@@ -34,6 +34,15 @@ for (const tc of testcases) {
 		}
 
 		console.log(isFullTravelable(placeCount, subTestcaseInputs) ? 1 : 0);
+
+		console.log("SCC Count:", countScc(placeCount, subTestcaseInputs));
+		const { sinkCount, sourceCount } = countSinkSourcesScc(
+			placeCount,
+			subTestcaseInputs,
+		);
+
+		console.log(`Sink/Source SCC Count: ${sinkCount} / ${sourceCount}`);
+		console.log(`Minimum Roads to Add:`, Math.max(sinkCount, sourceCount));
 	}
 	const endTime = performance.now();
 	console.log(`--- End of Testcase ${tc} ---`);
