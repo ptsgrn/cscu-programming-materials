@@ -180,3 +180,5 @@ export function naiveSearchCircular(
 			}))
 	);
 }
+
+console.log(computePiPrefix("ABABAC"));
