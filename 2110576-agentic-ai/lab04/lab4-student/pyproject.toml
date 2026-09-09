@@ -1,0 +1,20 @@
+[project]
+name = "lab4-rag"
+version = "0.1.0"
+description = "Lab 4 - RAG with LangChain: build a baseline, then improve accuracy, latency and token cost"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "langchain>=0.3",
+    "langchain-community>=0.3",
+    "langchain-chroma>=0.2",
+    "fastembed>=0.5",
+    "rank-bm25>=0.2.2",
+    "flashrank>=0.2.10",
+    "python-dotenv>=1.0",
+    "ipykernel>=6.29",
+    "jupyterlab>=4.3",
+    "langchain-classic>=1.0.8",
+    "numpy>=2.4.6",
+    "langchain-openai>=1.6.0",
+]
