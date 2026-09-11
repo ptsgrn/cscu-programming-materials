@@ -1,0 +1,28 @@
+[project]
+name = "2301368-image-processing"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Patsagorn Yuenyong", email = "works@ptsgrn.dev" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "matplotlib>=3.11.1",
+    "numpy>=2.5.3",
+    "pandas>=3.0.5",
+    "pillow>=12.3.0",
+]
+
+[project.scripts]
+2301368-image-processing = "2301368_image_processing:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.3.0",
+    "uv>=0.12.13",
+]
