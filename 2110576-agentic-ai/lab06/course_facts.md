@@ -5,13 +5,14 @@ answered here, the true answer is "I don't know; ask the teaching team."
 
 ## The course
 
-- Agentic AI for Computer Engineering is a 15-week elective in the Department of Computer
-  Engineering, Chulalongkorn University.
-- Each week is one 3-hour session, Wednesday 13:00 to 16:00. Most sessions are a lab.
+- Agentic AI for Computer Engineering is an elective in the Department of Computer
+  Engineering, Chulalongkorn University. The semester has 16 weeks; week 16 is the final exam.
+- Each week is one 3-hour session, Wednesday 13:00 to 16:00. Until Lab 7 most sessions were labs;
+  after it, the sessions are for the final project.
   Sessions often run past 16:00.
 - Arriving more than 15 minutes late results in a score penalty. The size of the penalty
   is not in this file.
-- Students work in teams of four. There are eleven teams.
+- Students work in teams of about four. There are ten teams.
 - The course is paperless. Everything is handed in through the LMS, except team sheets,
   which are shared Google Docs.
 - The models used in class run on the department's own server (a DGX B200) behind a
@@ -36,7 +37,7 @@ Some labs used different role names (Lab 4, the retrieval lab, is one).
 
 These happen in most labs and are written individually or by the team.
 
-1. Decomposition gate, before the lab: which parts of the task must be plain code, which
+1. Decomposition gate, at the start of the lab: which parts of the task must be plain code, which
    need a model, and where is the line.
 2. Prediction ledger, before and after: predict token cost, time, and the first thing
    that will go wrong; afterwards, write what actually happened.
@@ -46,22 +47,33 @@ These happen in most labs and are written individually or by the team.
 The rituals are marked on how your predictions improve across the term, not on whether
 one prediction was right.
 
-## The labs so far
+## The labs
 
-| Lab | Week | Title |
+Lab 7 is the last lab. After it, the sessions are for the final project. Week numbers are
+weeks of the semester, so they do not match lab numbers.
+
+| Week | Date (Wednesday) | Session |
 |---|---|---|
-| Lab 1 | 1 | Same Question, Two Tools |
-| Lab 2 | 2 | What Is This Thing? |
-| Lab 3 | 3 | Build the Loop |
-| Lab 4 | 4 | Retrieval |
-| Lab 5 | 5 | The Wall |
-| Lab 6 | 6 | Ship the Bot (Wednesday 7 October 2026) |
-| Lab 7 | 7 | The bot gets tools (Wednesday 14 October 2026) |
+| 1 | 5 August 2026 | Lab 1: Same Question, Two Tools |
+| 2 | 12 August | No class (Mother's Day holiday) |
+| 3 | 19 August | A lecture |
+| 4 | 26 August | Lab 2: What Is This Thing? |
+| 5 | 2 September | Lab 3: Build the Loop |
+| 6 | 9 September | Lab 4: Retrieval |
+| 7 | 16 September | Lab 5: The Wall |
+| 8 | 23 September | No class (midterm exams) |
+| 9 | 30 September | No class (graduation ceremony) |
+| 10 | 7 October | Lab 6: Ship the Bot |
+| 11 | 14 October | Lab 7: The bot gets tools, the last lab |
+| 12 to 14 | 21 October, 28 October, 4 November | Final project work |
+| 15 | 11 November | Final project presentations |
+| 16 | 18 November | Final exam |
 
 ## Final project
 
-- Teams build a final project in weeks 11 to 15.
-- The project proposal is due at the end of week 9.
+- Teams build a final project after Lab 7: project work in weeks 12 to 14 (21 October to
+  4 November), presentations in week 15 (Wednesday 11 November 2026).
+- The project proposal is due in week 13, Wednesday 28 October 2026.
 - At least one core part of the project must run on a self-hosted open-weight model
   (for example Qwen or Gemma on the department server).
 - Before a project counts as finished, a different team must try to break it.
