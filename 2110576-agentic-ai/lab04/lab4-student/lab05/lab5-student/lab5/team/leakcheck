@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# team/leakcheck
+# Runs the leak checker over the team's reply log: exact-string search for the server's identity list
+# (every synthetic name) and for the team's own leak-patterns.txt as last pushed. Counts per run, matches
+# masked to their first character. Skeptic's command at the checkpoint. Never blocks, never notifies.
+set -u
+here="$(cd "$(dirname "$0")" && pwd)"
+cfg="$here/config"
+if [ ! -f "$cfg" ]; then echo "$(basename "$0"): no team/config; copy the three lines from the team's card" >&2; exit 2; fi
+i=0; server=""; group=""; token=""
+while IFS= read -r line || [ -n "$line" ]; do
+  line="${line%$'\r'}"; line="$(printf '%s' "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+  case "$line" in ''|'#'*) continue;; esac
+  i=$((i+1))
+  case $i in 1) server="$line";; 2) group="$line";; 3) token="$line";; esac
+done < "$cfg"
+server="${server%/}"
+auth=(-H "X-Group: $group" -H "X-Team-Token: $token")
+curl -sS --max-time 60 "${auth[@]}" "$server/teams/$group/leaks"

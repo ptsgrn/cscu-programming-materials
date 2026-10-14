@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "defaultMode": "default",
+    "disableAutoMode": "disable",
+    "disableBypassPermissionsMode": "disable",
+    "allow": [],
+    "deny": [
+      "Bash(curl:*)", "Bash(wget:*)", "Bash(nc:*)", "Bash(ncat:*)", "Bash(telnet:*)", "Bash(ssh:*)", "Bash(scp:*)", "Bash(sftp:*)",
+      "Bash(python:*)", "Bash(python3:*)", "Bash(py:*)", "Bash(pip:*)", "Bash(pip3:*)", "Bash(uv:*)", "Bash(uvx:*)",
+      "Bash(node:*)", "Bash(npx:*)", "Bash(perl:*)", "Bash(ruby:*)", "Bash(php:*)", "Bash(bash:*)", "Bash(sh:*)", "Bash(zsh:*)",
+      "Bash(env:*)", "Bash(xargs:*)", "Bash(cd ..:*)", "Bash(cat ../*)", "Bash(less ../*)", "Bash(head ../*)", "Bash(tail ../*)",
+      "Read(../team/**)", "Read(../tool/**)", "Read(//**/lab5/team/**)", "Read(//**/lab5/tool/**)",
+      "Edit(../**)", "Write(../**)", "Edit(//**/lab5/tool/**)", "Write(//**/lab5/tool/**)", "Edit(//**/lab5/team/**)", "Write(//**/lab5/team/**)",
+      "Edit(./wall)", "Edit(./workload-index)", "Write(./wall)", "Write(./workload-index)", "Edit(.claude/**)", "Write(.claude/**)",
+      "WebFetch", "WebSearch"
+    ]
+  }
+}

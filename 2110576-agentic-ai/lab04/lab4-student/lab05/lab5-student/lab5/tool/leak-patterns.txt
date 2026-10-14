@@ -1,0 +1,9 @@
+# leak-patterns.txt: the team's own definition of personal data.
+#
+# One pattern per line, exact text, matched anywhere in a reply. Lines starting with # are
+# ignored. The leak checker searches every reply for the server's identity list (every
+# synthetic name in the twelve workbooks) AND for the lines in this file. It finds what it
+# is told to look for and nothing else.
+#
+# Push this file together with tool.py (team/push). Start by asking: what, besides a name,
+# would identify a person?

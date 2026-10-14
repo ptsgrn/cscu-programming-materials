@@ -1,0 +1,7 @@
+# The answers block. Five lines. team/submit uploads this file with REPORT.md and the
+# agent's rules file. Fill it from the team sheet, section 10. Keep the labels.
+redaction: <one of: code | model prompt | rules file | nowhere>
+fixes: <two letters from the fix menu, for example: B F>
+stopping-rule: eye=<n> search=<n> cells=<n>
+disagreement: <one line>
+moment: <lab-clock minute when the Driver stopped reading approval prompts, from the Skeptic, or: never>

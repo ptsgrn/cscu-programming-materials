@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# team/submit
+# Uploads the report (orchestrator/REPORT.md), the agent's rules file (orchestrator/CLAUDE.md) and the
+# answers block (team/answers.txt), then asks the server to check the report's shape. ACCEPTED means a
+# numbered submission version was stored; REFUSED lists what to fix. Run again after fixing. Every
+# accepted version is kept.
+set -u
+here="$(cd "$(dirname "$0")" && pwd)"
+cfg="$here/config"
+if [ ! -f "$cfg" ]; then echo "$(basename "$0"): no team/config; copy the three lines from the team's card" >&2; exit 2; fi
+i=0; server=""; group=""; token=""
+while IFS= read -r line || [ -n "$line" ]; do
+  line="${line%$'\r'}"; line="$(printf '%s' "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+  case "$line" in ''|'#'*) continue;; esac
+  i=$((i+1))
+  case $i in 1) server="$line";; 2) group="$line";; 3) token="$line";; esac
+done < "$cfg"
+server="${server%/}"
+auth=(-H "X-Group: $group" -H "X-Team-Token: $token")
+orch="$here/../orchestrator"
+for pair in "REPORT.md:$orch/REPORT.md" "CLAUDE.md:$orch/CLAUDE.md" "answers.txt:$here/answers.txt"; do
+  name="${pair%%:*}"; path="${pair#*:}"
+  if [ ! -f "$path" ]; then echo "submit: $path is missing" >&2; exit 2; fi
+  curl -sS --max-time 30 "${auth[@]}" -X PUT --data-binary @"$path" -H 'Content-Type: text/plain; charset=utf-8' "$server/teams/$group/submission/$name" >/dev/null || exit 3
+done
+curl -sS --max-time 30 "${auth[@]}" -X POST -d '' "$server/teams/$group/submit"
