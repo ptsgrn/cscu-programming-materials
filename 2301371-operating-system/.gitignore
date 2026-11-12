@@ -1,0 +1,24 @@
+# C (client-server-c, fork): Makefile output
+build/
+*.o
+*.out
+
+# .NET (2nd-rw-problem, error-diffusion)
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+# Python (client-server-python, error-diffusion)
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Editors / OS
+.idea/
+.DS_Store
+*.swp
